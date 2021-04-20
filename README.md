@@ -3,7 +3,7 @@
 ### Cloning a Repo
 
 > test test tes
----
+
 ` git clone  `
 
 ### Creating a Remote
@@ -39,4 +39,7 @@
 
 
 ### Pull Requests
+
+---
+
 
