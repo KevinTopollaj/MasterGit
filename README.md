@@ -23,7 +23,7 @@
 
 > You can turn any directory on your computer into a Git Repository, and by doing that Git will create a hidden .git directory within that directory. It uses that directory for all of its metadata and its object storage to maintain the history as you move forward.
 
-> 1. Create a Directory :
+> 1. Create a directory :
 
 `mkdir myDirectory`
 
@@ -31,11 +31,11 @@
 
 `cd myDirectory`
 
-> 3. Create a new Git Repository :
+> 3. Create a new Git repository :
 
 `git init`
 
-> 4. Check the status of your Repository :
+> 4. Check the status of your repository :
 
 `git status`
 
@@ -43,13 +43,25 @@
 
 `git add [filename]`
 
-> 6. Commit the changes to the Remote Repository by adding a message :
+> 6. Commit the changes to the remote repository by adding a message :
 
 `git commit -m "[yourMessage]"`
 
 > 7. To see your commit :
 
 `git log`
+
+> 8. Create a repository in GitHub and get the https url to add the local changes to the remote repository :
+
+`git remote add origin [yourHttpsUrl]`
+
+> 9. Check if the remote repository is created :
+
+`git remote -vv`
+
+> 10. Move the repository content from your local computer to the remote repository, use ( -u | --set-upstream ) to ensure that the local branch will track the remote master branch  :
+
+`git push -u origin main`
 
 
 > You can see your local Git configurations using :
