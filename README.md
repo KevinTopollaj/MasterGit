@@ -12,9 +12,12 @@
 
 ### Cloning a Repo
 
-> 
+> Cloning consists of copying the entire Repository from the cloud into your local computer.
 
-` git clone  `
+> 1. Remote is called the cloud where you clone the version of the Repository from (GitHub, GitLab, BitBucket).
+> 2. Local Repository (CLONE) is called the version of the Repository you store on your disk.  
+
+` git clone [yourHttpsUrl]`
 
 ### Creating a Remote
 
