@@ -24,34 +24,44 @@
 > You can turn any directory on your computer into a Git Repository, and by doing that Git will create a hidden .git directory within that directory. It uses that directory for all of its metadata and its object storage to maintain the history as you move forward.
 
 > 1. Create a Directory :
+
 `mkdir myDirectory`
 
 > 2. Move inside that directory :
+
 `cd myDirectory`
 
 > 3. Create a new Git Repository :
+
 `git init`
 
 > 4. Check the status of your Repository :
+
 `git status`
 
 > 5. Start to track a newly added file in the directory and stage this change :
+
 `git add [filename]`
 
 > 6. Commit the changes to the Remote Repository by adding a message :
+
 `git commit -m "[yourMessage]"`
 
 > 7. To see your commit :
+
 `git log`
 
 
 > You can see your local Git configurations using :
+
 `git config --local --list`
 
 > You can see your global Git configurations using :
+
 `git config --global --list`
 
 > You can change your user name and email used by Git to track commits using :
+
 `git config user.name "[yourNewName]"`
 `git config user.email "[yourNewEmail]"`
 
