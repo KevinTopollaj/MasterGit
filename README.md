@@ -293,13 +293,13 @@ e - manually edit the current hunk
 
 ### Branching
 
-> A commit represents a particular state of the tree directory, it also contains metadata like author, date, email, and the most important a reference to it's parent.
-> All this is wraped inside the git repository and gives us an unique reference in a form of an hash using SHA1, this hash allows you to refer to a particular commit within your repository and every hash is unique so you can easily identify a specific commit using it's hash.
+> A commit represents a particular state of the tree directory, it also contains metadata like author, date, email, and the most important a reference to its parent.
+> All this is wrapped inside the git repository and gives us a unique reference in a form of a hash using SHA1, this hash allows you to refer to a particular commit within your repository and every hash is unique so you can easily identify a specific commit using its hash.
 
 > A Branch is just a label associated with a particular commit, it is implemented as a file containing a SHA1 hash then as you create more commits that label gets moved forward updating as you create new commits on the branch.
 > By default when you create a git repository git creates a branch for you and calls it the 'main' branch.
 
-> You can create  a brach :
+> You can create a branch :
 
 `git branch [branchName]`
 
@@ -311,19 +311,19 @@ e - manually edit the current hunk
 
 `git branch`
 
-> To move to the new created branch :
+> To move to the newly created branch :
 
 `git checkout [branchName]`
 
-> To create and move to the new created branch :
+> To create and move to the newly created branch :
 
 `git checkout -b [branchName]`
 
-> To delete the new created branch :
+> To delete the newly created branch :
 
 `git branch -d [branchName]`
 
-> To see all the branches created localy and on remote :
+> To see all the branches created locally and on remote :
 
 `git branch --all`
 
@@ -331,17 +331,17 @@ e - manually edit the current hunk
 
 `git checkout --track origin/[branchName]`
 
-> Git will not let you delete a branch that has a commit so you will not lose the changes that are commited.
+> Git will not let you delete a branch that has a commit so you will not lose the changes that are committed.
 > To delete a branch that has commits in it :
 
 `git branch -D [branchName]`
 
 ### Merging
 
-> Merging consist of taking two branches  and join them back together.
-> The Main branch is what is deployed in production and it has only merges in it, this merges come from  a branch called Development branch and this is deployed to the staging system, if we want to create a new feature you can create a new Feature branch from Development branch and make some commits on the new Feature branch that has the new feature and than we merge that Feature branch back to the Development branch.
+> Merging consists of taking two branches and join them back together.
+> The Main branch is what is deployed in production and it has only merged in it, this merges come from a branch called the Development branch and this is deployed to the staging system, if we want to create a new feature you can create a new Feature branch from Development branch and make some commits on the new Feature branch that has the new feature and then we merge that Feature branch back to the Development branch.
 
-> Since the commit graph is well defined in git it allows git to use a three way merge which makes merging less error prone, so it looks at the previous commits, it looks at the two commits at the end, and it looks at the common ansestors where one branch left the other one. It uses this information to create that merge commit.
+> Since the commit-graph is well defined in git it allows git to use a three-way merge which makes merging less error-prone, so it looks at the previous commits, it looks at the two commits at the end, and it looks at the common ancestors where one branch left the other one. It uses this information to create that merge commit.
 
 > If two people edit the same line of code in the same file differently you will get a merge conflict because git will not know which one to keep.
 
