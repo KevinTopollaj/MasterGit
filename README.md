@@ -126,6 +126,84 @@
 > 2. Staging Area -> the directory for building your next commit, where you stage the changes using add.
 > 3. Repository -> the directory for your local commits, where you create a reference for a point in history that you can than reference and access later on.
 
+> Staging area is very useful, it allows you to stage just 10 lines of a file that you might have change 80 lines. So it allows you to put the changes that you have made separate so you can create more than one commit with all the changes you have made.
+
+> 1. Make a change in a file in your local repository.
+
+> 2. See the changes that you have made that are not in the staging area :
+
+`git diff`
+
+> 3. Add all the changes in the staging area :
+
+`git add .`
+
+> 4. See the changes that you have made and that are in the staging area :
+
+`git diff --staged`
+
+> 5. Move the changes back from the staging area to your working directory :
+
+`git reset HEAD [yourFileName]`
+
+> 6. Launch interactive adding :
+
+`git add -i`
+
+> 7. Type 'p' to select subsections of each of the files :
+
+`What now> p`
+
+> 8. Type the first letter of the file that you want to use :
+
+`Patch update>> [firstLetter]`
+
+> 9. This will display all changes and call it a 'hunk' and give you the option to stage it:
+
+`Stage this hunk [y,n,q,a,d,s,e,?]? `
+
+> 10. By typing ? it will show you all the options you can apply to your hunk :
+
+`Stage this hunk [y,n,q,a,d,s,e,?]? ?`
+
+```
+y - stage this hunk
+n - do not stage this hunk
+q - quit; do not stage this hunk or any of the remaining ones
+a - stage this hunk and all later hunks in the file
+d - do not stage this hunk or any of the later hunks in the file
+s - split the current hunk into smaller hunks
+e - manually edit the current hunk
+? - print help
+```
+
+> 11. By typing 's' it will split your hunk :
+
+`Stage this hunk [y,n,q,a,d,s,e,?]? s`
+
+> 12. By typing 'y' it will stage the first newly created hunk :
+
+`Stage this hunk [y,n,q,a,d,s,e,?]? y`
+
+> 13. By typing 'n' it will not stage the second created hunk :
+
+`Stage this hunk [y,n,q,a,d,s,e,?]? n`
+
+> 14. Type 's' to see the staged files :
+
+`What now> s`
+
+> 15. Type 'q' to exit :
+
+`What now> q`
+
+> 16. Commit the staged hunk :
+
+`git commit -m "[yourMessage]"`
+
+> 17. See the commits that you have created :
+
+`git log`
 
 ### Ignoring Files
 
