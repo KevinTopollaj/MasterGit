@@ -361,6 +361,8 @@ e - manually edit the current hunk
 
 `git merge [branchName]`
 
+> Fast Forward Merge, it happens when you create a branch from the Main branch you make some commits in that new branch and then move back to the Main branch and merge it with the new branch. This way you did not create a merge commit you have only moved the Master branch to the end of the new commits made by the new branch that we created from the Main branch.
+
 ### Syncing with a Remote
 
 
