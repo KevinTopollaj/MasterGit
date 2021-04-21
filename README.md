@@ -121,6 +121,10 @@
 
 ### Staging Area
 
+> Git has three conceptual areas :
+> 1. Working Directory  -> the directory that you are working in.
+> 2. Staging Area -> the directory for building your next commit, where you stage the changes using add.
+> 3. Repository -> the directory for your local commits, where you create a reference for a point in history that you can than reference and access later on.
 
 
 ### Ignoring Files
