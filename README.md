@@ -332,7 +332,9 @@ e - manually edit the current hunk
 `git checkout --track origin/[branchName]`
 
 > Git will not let you delete a branch that has a commit so you will not lose the changes that are commited.
-> 
+> To delete a branch that has commits in it :
+
+`git branch -D [branchName]`
 
 ### Merging
 
