@@ -315,6 +315,10 @@ e - manually edit the current hunk
 
 `git checkout [branchName]`
 
+> To create and move to the new created branch :
+
+`git checkout -b [branchName]`
+
 > To delete the new created branch :
 
 `git branch -d [branchName]`
