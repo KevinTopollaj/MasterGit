@@ -245,7 +245,51 @@ e - manually edit the current hunk
 
 ### Viewing History
 
+> Using the command  `git log` will give you the history of your repository and you can see each commit in more detail like the hash, author, date, and message.
 
+> If you want to see a specific number of your latest commits :
+
+`git log -5`
+
+> If you want to see a specific summary of your commits :
+
+`git log --oneline`
+
+> To see an ASCII representation for the branches within the graph :
+
+`git log --graph`
+
+> You can combine them together :
+
+`git log --oneline --graph --decorate --all`
+
+> To see the differences for consecutive commits :
+
+`git log -p`
+
+> To see changelogs where is the first line of each commit message grouped by author :
+
+`git shortlog`
+
+> To see a log of just the commits of a particular author :
+
+`git log --author="[authorName]"`
+
+> To search the commit messages you can write :
+
+`git log --grep="[keyWord]"`
+
+> To see a log for just one particular file :
+
+`git log -- [fileName]`
+
+> To search the content of the commit itself where the word is committed to :
+
+`git log -S"[keyWord]" -p`
+
+> Search the content of the commit for a specific keyWord :
+
+`git log -p --all -S"[keyWord]"`
 
 ### Branching
 
