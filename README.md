@@ -215,7 +215,33 @@ e - manually edit the current hunk
 
 ### Ignoring Files
 
+> It is useful to use it if you have passwords or API keys, you can use environment variables for what we don't want to track inside our repo.
+> Locally these are stored in a file that is ignored by git so that when we commit it, it tracks everything apart of these files.
+> So we create a .gitignore file, which is a simple text file where you list the patterns for the paths you want git to ignore, you can create it locally for a directory to ignore specific files in that directory or globally which will apply to all of the directories.
 
+> You can create a git ignore file :
+
+`touch .gitignore`
+
+> You can edit it by adding constraints using the nano text editor :
+
+`nano .gitignore`
+
+> You can ignore all the .html files by adding the following line in the .gitignore file :
+
+`*.html`
+
+> You can ignore all the .html file that is not in the current directory but only the ones that are inside other directories contained inside the main directory :
+
+`*/*.html`
+
+> You can find the global gitignore file with the following command if it exists :
+
+`git config --global core.excludefile`
+
+> You can create it, if it does not exist :
+
+`git config --global core.excludefile ~/.gitignore_global`
 
 ### Viewing History
 
