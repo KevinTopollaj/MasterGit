@@ -338,7 +338,28 @@ e - manually edit the current hunk
 
 ### Merging
 
+> Merging consist of taking two branches  and join them back together.
+> The Main branch is what is deployed in production and it has only merges in it, this merges come from  a branch called Development branch and this is deployed to the staging system, if we want to create a new feature you can create a new Feature branch from Development branch and make some commits on the new Feature branch that has the new feature and than we merge that Feature branch back to the Development branch.
 
+> Since the commit graph is well defined in git it allows git to use a three way merge which makes merging less error prone, so it looks at the previous commits, it looks at the two commits at the end, and it looks at the common ansestors where one branch left the other one. It uses this information to create that merge commit.
+
+> If two people edit the same line of code in the same file differently you will get a merge conflict because git will not know which one to keep.
+
+> Move to the branch that you have made the commits :
+
+`git checkout [branchName]`
+
+> Check the commits that you have made :
+
+`git log`
+
+> Move back to the main branch :
+
+`git checkout main`
+
+> Merge the branch that you have created with the main branch :
+
+`git merge [branchName]`
 
 ### Syncing with a Remote
 
