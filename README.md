@@ -124,9 +124,9 @@
 > Git has three conceptual areas :
 > 1. Working Directory  -> the directory that you are working in.
 > 2. Staging Area -> the directory for building your next commit, where you stage the changes using add.
-> 3. Repository -> the directory for your local commits, where you create a reference for a point in history that you can than reference and access later on.
+> 3. Repository -> the directory for your local commits, where you create a reference for a point in history that you can then reference and access later on.
 
-> Staging area is very useful, it allows you to stage just 10 lines of a file that you might have change 80 lines. So it allows you to put the changes that you have made separate so you can create more than one commit with all the changes you have made.
+> The Staging area is very useful, it allows you to stage just 10 lines of a file that you might have change 80 lines. So it allows you to put the changes that you have made separate so you can create more than one commit with all the changes you have made.
 
 > 1. Make a change in a file in your local repository.
 
@@ -138,7 +138,7 @@
 
 `git add .`
 
-> 4. See the changes that you have made and that are in the staging area :
+> 4. See the changes that you have made and that is in the staging area :
 
 `git diff --staged`
 
@@ -158,11 +158,11 @@
 
 `Patch update>> [firstLetter]`
 
-> 9. This will display all changes and call it a 'hunk' and give you the option to stage it:
+> 9. This will display all changes and call it a 'hunk' and give you the option to stage it :
 
 `Stage this hunk [y,n,q,a,d,s,e,?]? `
 
-> 10. By typing ? it will show you all the options you can apply to your hunk :
+> 10. By typing '?' it will show you all the options you can apply to your hunk :
 
 `Stage this hunk [y,n,q,a,d,s,e,?]? ?`
 
@@ -204,6 +204,14 @@ e - manually edit the current hunk
 > 17. See the commits that you have created :
 
 `git log`
+
+> You can move a file from a directory to another using git and it will automatically stage the moved file into the new directory :
+
+`git mv [oldDirectory]/[file] [newDirectory]`
+
+> You can delete a file from a directory using git and it will automatically stage the deleted file change :
+
+`git rm [directory]/[file]`
 
 ### Ignoring Files
 
