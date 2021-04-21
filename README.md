@@ -293,7 +293,42 @@ e - manually edit the current hunk
 
 ### Branching
 
+> A commit represents a particular state of the tree directory, it also contains metadata like author, date, email, and the most important a reference to it's parent.
+> All this is wraped inside the git repository and gives us an unique reference in a form of an hash using SHA1, this hash allows you to refer to a particular commit within your repository and every hash is unique so you can easily identify a specific commit using it's hash.
 
+> A Branch is just a label associated with a particular commit, it is implemented as a file containing a SHA1 hash then as you create more commits that label gets moved forward updating as you create new commits on the branch.
+> By default when you create a git repository git creates a branch for you and calls it the 'main' branch.
+
+> You can create  a brach :
+
+`git branch [branchName]`
+
+> Creating a new branch creates a new file in .git/refs/heads/[branchName] that contains the SHA1 hash of the current commit :
+
+`cat .git/refs/heads/[branchName]`
+
+> To see the list of all of the branches :
+
+`git branch`
+
+> To move to the new created branch :
+
+`git checkout [branchName]`
+
+> To delete the new created branch :
+
+`git branch -d [branchName]`
+
+> To see all the branches created localy and on remote :
+
+`git branch --all`
+
+> To track a remote branch :
+
+`git checkout --track origin/[branchName]`
+
+> Git will not let you delete a branch that has a commit so you will not lose the changes that are commited.
+> 
 
 ### Merging
 
