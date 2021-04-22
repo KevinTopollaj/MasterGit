@@ -469,6 +469,7 @@ e - manually edit the current hunk
 # Master Git
 
 ## Table of contents
+* [Beginning Git](#beginning-git)
 * [Git Info](#git-info)
 * [a](#a)
 * [a](#a)
