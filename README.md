@@ -19,6 +19,7 @@
 
 `git clone [yourHttpsUrl]`
 
+
 ### Creating a Remote Repository
 
 > You can turn any directory on your computer into a Git Repository, and by doing that Git will create a hidden .git directory within that directory. It uses that directory for all of its metadata and its object storage to maintain the history as you move forward.
@@ -119,6 +120,7 @@
 
 > 3. Now you can add, commit and push the new directory to your remote repository.
 
+
 ### Staging Area
 
 > Git has three conceptual areas :
@@ -213,6 +215,7 @@ e - manually edit the current hunk
 
 `git rm [directory]/[file]`
 
+
 ### Ignoring Files
 
 > It is useful to use it if you have passwords or API keys, you can use environment variables for what we don't want to track inside our repo.
@@ -242,6 +245,7 @@ e - manually edit the current hunk
 > You can create it, if it does not exist :
 
 `git config --global core.excludefile ~/.gitignore_global`
+
 
 ### Viewing History
 
@@ -291,6 +295,7 @@ e - manually edit the current hunk
 
 `git log -p --all -S"[keyWord]"`
 
+
 ### Branching
 
 > A commit represents a particular state of the tree directory, it also contains metadata like author, date, email, and the most important a reference to its parent.
@@ -336,6 +341,7 @@ e - manually edit the current hunk
 
 `git branch -D [branchName]`
 
+
 ### Merging
 
 > Merging consists of taking two branches and join them back together.
@@ -367,11 +373,47 @@ e - manually edit the current hunk
 
 `git merge --no-ff [branchName]`
 
+
 ### Syncing with a Remote
 
+> There are two fundamental processes to work with remote directory labeled : PUSH and PULL
+
+> You push your local changes to the remote repository :
+
+`git push`
+
+> You pull changes from the remote repository to your local repository :
+
+`git pull` or `git fetch`
+
+> You can list all your remotes that are associated with the current repo :
+
+`git remote -v`
+
+> Will list the branches and the remote branches they are tracking :
+
+`git branch -vv`
+
+> Will list all branches including remote branches :
+
+`git branch -vv --all`
+
+> You can create a new remote :
+
+`git remote add [remoteName] [repositoryURL]`
+
+> You can take the remote changes :
+
+`git fetch [remoteName]`
+
+> You can see more detail for a specific remote repository :
+
+`git remote show [remoteName]`
 
 
 ### Pull Requests
+
+
 
 ---
 
