@@ -426,6 +426,29 @@ e - manually edit the current hunk
 
 `git push --set-upstream origin [branchName]`
 
+> You can check that the remote branch is created :
+
+`git branch --all -vv`
+
+> To create a new pull request you go to your GitHub account in the 'Pull requests' tab and click on the 'New pull request' button, after you can chose the 'base: branch' that will get the changes and the 'compare: branch' that has the changes and will be merged in the 'base: branch', it will then show you all the changes between those files and if you are ok with the changes you click the 'Create pull request' button, it will send you into another page where you can add more information and in the right side you can add Reviewers, Assignees, Labels, Projects, and Milestone. After you click the 'Create pull request' button and it will create the pull request, even if you created the pull request you can continue to add work to it and push the changes and at the bottom you can add extra comments related to that pull request.
+> At the top we have Conversation tab where we can see the commits and the comments, Commits tab where we can se all the commits that have been made in this pull request, Filechanged tab will show you the chnages that have been made in each file, if you click the 'Review changes' button you can Comment changes without approval, Approve where you could give a feedback and approve merging these changes, Request changes give feedback and address changes to be made before merging.
+> If you click the 'Merge pull request' button ti will display a comment and another button 'Confirm merge' to merge the changes and then it gives you a button 'Delete branch' to delete the brach witch changes have been merged.
+
+> Go to the main branch :
+
+`git checkout main`
+
+> Get all the latest information from the remote repo :
+
+`git fetch`
+
+> If we run `git status` command we can see that our main branch is behind origin/main branch so to update your local main branch you run `git pull` command
+
+> To see if any branches have been deleted from the remote repository and apply those changes locally :
+
+`git remote prune origin`
+
+
 ---
 
 
