@@ -1,7 +1,7 @@
-# Master Git
+# Beginning Git
 
 ## Table of contents
-* [General info](#general-info)
+* [General Info](#general-info)
 * [Cloning a Repository](#cloning-a-repository)
 * [Creating a Remote Repository](#creating-a-remote-repository)
 * [Commiting Changes](#commiting-changes)
@@ -11,8 +11,9 @@
 * [Merging](#merging)
 * [Syncing with a Remote](#syncing-with-a-remote)
 * [Pull Requests](#pull-requests)
+* [Master Git](#master-git)
 
-## General info
+## General Info
 
 > Source control has the ability to remember the history of your project and to jump back in time with whatever kind of files you are working on, and it can integrate changes from different branches and then merge them into one.
 
@@ -465,4 +466,21 @@ e - manually edit the current hunk
 
 ---
 
+# Master Git
 
+## Table of contents
+* [General Info](#general-info)
+* [a](#a)
+* [a](#a)
+* [a](#a)
+* [a](#a)
+* [a](#a)
+* [a](#a)
+* [a](#a)
+* [a](#a)
+* [a](#a)
+* [a](#a)
+
+## General Info
+
+> 
