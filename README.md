@@ -1,5 +1,19 @@
 # Master Git
 
+## Table of contents
+* [General info](#general-info)
+* [Cloning a Repository](#cloning-a-repository)
+* [Creating a Remote Repository](#creating-a-remote-repository)
+* [Commiting Changes](#commiting-changes)
+* [Staging Area](#staging-area)
+* [Ignoring Files](#ignoring-files)
+* [Branching](#branching)
+* [Merging](#merging)
+* [Syncing with a Remote](#syncing-with-a-remote)
+* [Pull Requests](#pull-requests)
+
+## General info
+
 > Source control has the ability to remember the history of your project and to jump back in time with whatever kind of files you are working on, and it can integrate changes from different branches and then merge them into one.
 
 > 1. Commit : It is a snapshot in time of your work.
@@ -10,7 +24,7 @@
 
 > The key thing that makes Git different from Subversions is the fact that Git stores each Commit as what your project looks like at this point in time, Subversion stores the Diff so if you want to see how a Repository looked like at a specific time you have to go back to the beginning and replay all the Diffs.
 
-### Cloning a Repository 
+## Cloning a Repository
 
 > Cloning consists of copying the entire Repository from the cloud into your local computer.
 
@@ -20,7 +34,7 @@
 `git clone [yourHttpsUrl]`
 
 
-### Creating a Remote Repository
+## Creating a Remote Repository
 
 > You can turn any directory on your computer into a Git Repository, and by doing that Git will create a hidden .git directory within that directory. It uses that directory for all of its metadata and its object storage to maintain the history as you move forward.
 
@@ -78,7 +92,7 @@
 `git config user.name "[yourNewName]"`
 `git config user.email "[yourNewEmail]"`
 
-### Commiting Changes
+## Commiting Changes
 
 > Commit representes the state of the directory at a particular point in time. Each commit has one or more parents and the transition from parent to child is represented by a Diff which are the differences/changes between the parent and the child.
 
@@ -121,7 +135,7 @@
 > 3. Now you can add, commit and push the new directory to your remote repository.
 
 
-### Staging Area
+## Staging Area
 
 > Git has three conceptual areas :
 > 1. Working Directory  -> the directory that you are working in.
@@ -216,7 +230,7 @@ e - manually edit the current hunk
 `git rm [directory]/[file]`
 
 
-### Ignoring Files
+## Ignoring Files
 
 > It is useful to use it if you have passwords or API keys, you can use environment variables for what we don't want to track inside our repo.
 > Locally these are stored in a file that is ignored by git so that when we commit it, it tracks everything apart of these files.
@@ -296,7 +310,7 @@ e - manually edit the current hunk
 `git log -p --all -S"[keyWord]"`
 
 
-### Branching
+## Branching
 
 > A commit represents a particular state of the tree directory, it also contains metadata like author, date, email, and the most important a reference to its parent.
 > All this is wrapped inside the git repository and gives us a unique reference in a form of a hash using SHA1, this hash allows you to refer to a particular commit within your repository and every hash is unique so you can easily identify a specific commit using its hash.
@@ -342,7 +356,7 @@ e - manually edit the current hunk
 `git branch -D [branchName]`
 
 
-### Merging
+## Merging
 
 > Merging consists of taking two branches and join them back together.
 > The Main branch is what is deployed in production and it has only merged in it, this merges come from a branch called the Development branch and this is deployed to the staging system, if we want to create a new feature you can create a new Feature branch from Development branch and make some commits on the new Feature branch that has the new feature and then we merge that Feature branch back to the Development branch.
@@ -374,7 +388,7 @@ e - manually edit the current hunk
 `git merge --no-ff [branchName]`
 
 
-### Syncing with a Remote
+## Syncing with a Remote
 
 > There are two fundamental processes to work with remote directory labeled: PUSH and PULL
 
@@ -411,7 +425,7 @@ e - manually edit the current hunk
 `git remote show [remoteName]`
 
 
-### Pull Requests
+## Pull Requests
 
 > A pull request forms a kind of review process around a merge.
 > If you work for an open-source project hosted on GitHub you need to fork the repository, making your changes, commit them to your own fork and then create a pull request from your fork back to the original repository.
