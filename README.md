@@ -419,7 +419,6 @@ e - manually edit the current hunk
 > A pull request forms a forum for discussing changes, adding continuous integration, testing, and code review.
 
 
-
 ---
 
 
