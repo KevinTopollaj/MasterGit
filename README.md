@@ -418,6 +418,13 @@ e - manually edit the current hunk
 > This pull request is just a merge of your code back into the origin, you can also use a pull request to merge from one branch to another within the same repository.
 > A pull request forms a forum for discussing changes, adding continuous integration, testing, and code review.
 
+> Create a new local branch :
+
+`git checkout -b [branchName]`
+
+> Make some changes and push the branch to the remote repository :
+
+`git push --set-upstream origin [branchName]`
 
 ---
 
