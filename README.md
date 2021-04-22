@@ -376,7 +376,7 @@ e - manually edit the current hunk
 
 ### Syncing with a Remote
 
-> There are two fundamental processes to work with remote directory labeled : PUSH and PULL
+> There are two fundamental processes to work with remote directory labeled: PUSH and PULL
 
 > You push your local changes to the remote repository :
 
@@ -386,7 +386,7 @@ e - manually edit the current hunk
 
 `git pull` or `git fetch`
 
-> You can list all your remotes that are associated with the current repo :
+> You can list all your remotes that are associated with the current repository :
 
 `git remote -v`
 
@@ -413,7 +413,18 @@ e - manually edit the current hunk
 
 ### Pull Requests
 
+> A pull request forms a kind of review process around a merge.
+> If you work for an open-source project hosted on GitHub you need to fork the repository, making your changes, commit them to your own fork and then create a pull request from your fork back to the original repository.
+> This pull request is just a merge of your code back into the origin, you can also use a pull request to merge from one branch to another within the same repository.
+> A pull request forms a forum for discussing changes, adding continuous integration, testing, and code review.
 
+> Create a new local branch :
+
+`git checkout -b [branchName]`
+
+> Make some changes and push the branch to the remote repository :
+
+`git push --set-upstream origin [branchName]`
 
 ---
 
