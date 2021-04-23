@@ -471,7 +471,7 @@ e - manually edit the current hunk
 ## Table of contents
 * [Beginning Git](#beginning-git)
 * [Git Info](#git-info)
-* [a](#a)
+* [Merge Conflicts](#merge-conflicts)
 * [a](#a)
 * [a](#a)
 * [a](#a)
@@ -492,3 +492,29 @@ e - manually edit the current hunk
 > So every aspect of the commit (Files, Tree, Commit text files) is stored in the Blob Store, and the hashes you see when you are using git are just the keys used in the Blob Store.
 > That is why braches are very cheap in git because everything is referenced by this key in the Blob Store as a SHA1 hash, so to chose a different point in the git repo you just use a different hash, so the branch is just a file with a reference to that SHA1 hash when you check it out git goes and finds the commit and from there it can find what tree it needs and it recreates that tree in your working directory.
 
+## Merge Conflicts
+
+> If two users edited the same line in a file from two different branches and try to merge one branch to the other it will cause a merge conflict.
+
+> To reset the merge :
+
+`git reset --hard HEAD`
+
+> To change the conflict style :
+
+`git config merge.conflictstyle diff3`
+
+> When we rerun the merge `git merge [branchThatHasChanges]` you will see that you have three sections :
+> 1. HEAD : that is the current branch code.
+> 2. merge common ancestors : is the code of the branch that the two other branches have been created from.
+> 3. [branchThatHasChanges] : is the code of the branch you are trying to take the changes from.
+
+> To solve the merge conflict you have to manually make the changes in the file that has conflicts and leave the code that you need to be on that file.
+> After solving the merge conflict you need to run the `git add .` command to add the changes in the staging area and then run `git commit -m "[yourMessage]"` to commit the changes.
+> You can now delete the branch that you have merged into your branch by running `git branch -d [branchThatHasChanges]`
+
+> On macOS when you install Xcode it provides for you a tool called 'opendiff', you can use this to graphically see diffs and resolve merge conflicts.
+> First, you need to set the config `git config merge.tool opendiff` then you can run a merge `git merge [branchThatHasChanges]` and it will inform you about the conflict.
+> You can run `git mergetool` to invoke the merge tool that we set up in the configuration 'opendiff', on the left-hand side are the local changes made on the branch that you are currently in, and on the right-hand side are the changes that you are trying to merge in from the other branch. 
+> At the bottom right we can choose the Action that we want to perform on the merge conflict.
+> By running the `git status` we will see that doing it in this way will create a file '[fileName].[fileExtension].orig' which is where the merge conflict is stored, so we don't need that and we can remove it using `rm [fileName].[fileExtension].orig` and then we can add and commit the changes and delete the branch that you have merged into your branch by running `git branch -d [branchThatHasChanges]`.
