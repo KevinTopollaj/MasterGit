@@ -484,4 +484,11 @@ e - manually edit the current hunk
 
 ## Git Info
 
-> 
+> All of the data that git uses to be able to provide the entire history of your repository is stored in a form of key-value, where a key points to data.
+> At a high level, a commit is just a tree that represents all of the files in your working directory.
+> All files that have changes when you commit them, it takes each of them and calculates the SHA1 hash of its content and it uses that as a key and the value is a compressed content of the file.
+> At the commit time, git creates all of the items within the tree in the Blob Store, it then needs to represent how the tree looks like for that commit, and to do that it creates a simple text file that has the keys of the items in the tree and puts it in the Blob Store, where it compresses the contents and finds the hash of it, the hash is the key and the compressed content of that tree file goes in the Blob Store as the value.
+> A commit also has a reference to the parent, then git creates a new simple Commit text file that represents the commit itself and it has a reference to the tree which is a key and a reference to its parent commit and it wraps that up in a file finds a hash and uses that as a key compresses the content as a value and stores it in the Blob Store.
+> So every aspect of the commit (Files, Tree, Commit text files) is stored in the Blob Store, and the hashes you see when you are using git are just the keys used in the Blob Store.
+> That is why braches are very cheap in git because everything is referenced by this key in the Blob Store as a SHA1 hash, so to chose a different point in the git repo you just use a different hash, so the branch is just a file with a reference to that SHA1 hash when you check it out git goes and finds the commit and from there it can find what tree it needs and it recreates that tree in your working directory.
+
