@@ -106,41 +106,23 @@
 
 > 1. Make a change in a file in your local repository.
 
-> 2. See the changes that you have made that are not in the staging area :
+> 2. See the changes that you have made that are not in the staging area :  `git diff`
 
-`git diff`
+> 3. Add all the changes in the staging area :  `git add .`
 
-> 3. Add all the changes in the staging area :
+> 4. See the changes that you have made and that is in the staging area : `git diff --staged`
 
-`git add .`
+> 5. Move the changes back from the staging area to your working directory :  `git reset HEAD [yourFileName]`
 
-> 4. See the changes that you have made and that is in the staging area :
+> 6. Launch interactive adding :  `git add -i`
 
-`git diff --staged`
+> 7. Type 'p' to select subsections of each of the files :  `What now> p`
 
-> 5. Move the changes back from the staging area to your working directory :
+> 8. Type the first letter of the file that you want to use :  `Patch update>> [firstLetter]`
 
-`git reset HEAD [yourFileName]`
+> 9. This will display all changes and call it a 'hunk' and give you the option to stage it :  `Stage this hunk [y,n,q,a,d,s,e,?]? `
 
-> 6. Launch interactive adding :
-
-`git add -i`
-
-> 7. Type 'p' to select subsections of each of the files :
-
-`What now> p`
-
-> 8. Type the first letter of the file that you want to use :
-
-`Patch update>> [firstLetter]`
-
-> 9. This will display all changes and call it a 'hunk' and give you the option to stage it :
-
-`Stage this hunk [y,n,q,a,d,s,e,?]? `
-
-> 10. By typing '?' it will show you all the options you can apply to your hunk :
-
-`Stage this hunk [y,n,q,a,d,s,e,?]? ?`
+> 10. By typing '?' it will show you all the options you can apply to your hunk :  `Stage this hunk [y,n,q,a,d,s,e,?]? ?`
 
 ```
 y - stage this hunk
@@ -153,41 +135,24 @@ e - manually edit the current hunk
 ? - print help
 ```
 
-> 11. By typing 's' it will split your hunk :
+> 11. By typing 's' it will split your hunk :  `Stage this hunk [y,n,q,a,d,s,e,?]? s`
 
-`Stage this hunk [y,n,q,a,d,s,e,?]? s`
+> 12. By typing 'y' it will stage the first newly created hunk :  `Stage this hunk [y,n,q,a,d,s,e,?]? y`
 
-> 12. By typing 'y' it will stage the first newly created hunk :
+> 13. By typing 'n' it will not stage the second created hunk :  `Stage this hunk [y,n,q,a,d,s,e,?]? n`
 
-`Stage this hunk [y,n,q,a,d,s,e,?]? y`
+> 14. Type 's' to see the staged files :  `What now> s`
 
-> 13. By typing 'n' it will not stage the second created hunk :
+> 15. Type 'q' to exit :  `What now> q`
 
-`Stage this hunk [y,n,q,a,d,s,e,?]? n`
+> 16. Commit the staged hunk :  `git commit -m "[yourMessage]"`
 
-> 14. Type 's' to see the staged files :
+> 17. See the commits that you have created :  `git log`
 
-`What now> s`
 
-> 15. Type 'q' to exit :
+> You can move a file from a directory to another using git and it will automatically stage the moved file into the new directory :  `git mv [oldDirectory]/[file] [newDirectory]`
 
-`What now> q`
-
-> 16. Commit the staged hunk :
-
-`git commit -m "[yourMessage]"`
-
-> 17. See the commits that you have created :
-
-`git log`
-
-> You can move a file from a directory to another using git and it will automatically stage the moved file into the new directory :
-
-`git mv [oldDirectory]/[file] [newDirectory]`
-
-> You can delete a file from a directory using git and it will automatically stage the deleted file change :
-
-`git rm [directory]/[file]`
+> You can delete a file from a directory using git and it will automatically stage the deleted file change :  `git rm [directory]/[file]`
 
 
 ## Ignoring Files
@@ -196,78 +161,44 @@ e - manually edit the current hunk
 > Locally these are stored in a file that is ignored by git so that when we commit it, it tracks everything apart of these files.
 > So we create a .gitignore file, which is a simple text file where you list the patterns for the paths you want git to ignore, you can create it locally for a directory to ignore specific files in that directory or globally which will apply to all of the directories.
 
-> You can create a git ignore file :
+> You can create a git ignore file :  `touch .gitignore`
 
-`touch .gitignore`
+> You can edit it by adding constraints using the nano text editor :  `nano .gitignore`
 
-> You can edit it by adding constraints using the nano text editor :
+> You can ignore all the .html files by adding the following line in the .gitignore file :  `*.html`
 
-`nano .gitignore`
+> You can ignore all the .html file that is not in the current directory but only the ones that are inside other directories contained inside the main directory :  `*/*.html`
 
-> You can ignore all the .html files by adding the following line in the .gitignore file :
+> You can find the global gitignore file with the following command if it exists :  `git config --global core.excludefile`
 
-`*.html`
-
-> You can ignore all the .html file that is not in the current directory but only the ones that are inside other directories contained inside the main directory :
-
-`*/*.html`
-
-> You can find the global gitignore file with the following command if it exists :
-
-`git config --global core.excludefile`
-
-> You can create it, if it does not exist :
-
-`git config --global core.excludefile ~/.gitignore_global`
+> You can create it, if it does not exist : `git config --global core.excludefile ~/.gitignore_global`
 
 
 ### Viewing History
 
 > Using the command  `git log` will give you the history of your repository and you can see each commit in more detail like the hash, author, date, and message.
 
-> If you want to see a specific number of your latest commits :
+> If you want to see a specific number of your latest commits :  `git log -5`
 
-`git log -5`
+> If you want to see a specific summary of your commits :  `git log --oneline`
 
-> If you want to see a specific summary of your commits :
+> To see an ASCII representation for the branches within the graph :  `git log --graph`
 
-`git log --oneline`
+> You can combine them together :  `git log --oneline --graph --decorate --all`
 
-> To see an ASCII representation for the branches within the graph :
+> To see the differences for consecutive commits : `git log -p`
 
-`git log --graph`
+> To see changelogs where is the first line of each commit message grouped by author :  `git shortlog`
 
-> You can combine them together :
+> To see a log of just the commits of a particular author :  `git log --author="[authorName]"`
 
-`git log --oneline --graph --decorate --all`
+> To search the commit messages you can write :  `git log --grep="[keyWord]"`
 
-> To see the differences for consecutive commits :
+> To see a log for just one particular file :  `git log -- [fileName]`
 
-`git log -p`
+> To search the content of the commit itself where the word is committed to :  `git log -S"[keyWord]" -p`
 
-> To see changelogs where is the first line of each commit message grouped by author :
-
-`git shortlog`
-
-> To see a log of just the commits of a particular author :
-
-`git log --author="[authorName]"`
-
-> To search the commit messages you can write :
-
-`git log --grep="[keyWord]"`
-
-> To see a log for just one particular file :
-
-`git log -- [fileName]`
-
-> To search the content of the commit itself where the word is committed to :
-
-`git log -S"[keyWord]" -p`
-
-> Search the content of the commit for a specific keyWord :
-
-`git log -p --all -S"[keyWord]"`
+> Search the content of the commit for a specific keyWord :  `git log -p --all -S"[keyWord]"`
 
 
 ## Branching
@@ -278,42 +209,25 @@ e - manually edit the current hunk
 > A Branch is just a label associated with a particular commit, it is implemented as a file containing a SHA1 hash then as you create more commits that label gets moved forward updating as you create new commits on the branch.
 > By default when you create a git repository git creates a branch for you and calls it the 'main' branch.
 
-> You can create a branch :
+> You can create a branch :  `git branch [branchName]`
 
-`git branch [branchName]`
+> Creating a new branch creates a new file in .git/refs/heads/[branchName] that contains the SHA1 hash of the current commit : `cat .git/refs/heads/[branchName]`
 
-> Creating a new branch creates a new file in .git/refs/heads/[branchName] that contains the SHA1 hash of the current commit :
+> To see the list of all of the branches : `git branch`
 
-`cat .git/refs/heads/[branchName]`
+> To move to the newly created branch :  `git checkout [branchName]`
 
-> To see the list of all of the branches :
+> To create and move to the newly created branch :  `git checkout -b [branchName]`
 
-`git branch`
+> To delete the newly created branch :  `git branch -d [branchName]`
 
-> To move to the newly created branch :
+> To see all the branches created locally and on remote :  `git branch --all`
 
-`git checkout [branchName]`
+> To track a remote branch :  `git checkout --track origin/[branchName]`
 
-> To create and move to the newly created branch :
-
-`git checkout -b [branchName]`
-
-> To delete the newly created branch :
-
-`git branch -d [branchName]`
-
-> To see all the branches created locally and on remote :
-
-`git branch --all`
-
-> To track a remote branch :
-
-`git checkout --track origin/[branchName]`
 
 > Git will not let you delete a branch that has a commit so you will not lose the changes that are committed.
-> To delete a branch that has commits in it :
-
-`git branch -D [branchName]`
+> To delete a branch that has commits in it : `git branch -D [branchName]`
 
 
 ## Merging
