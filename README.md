@@ -333,13 +333,10 @@ e - manually edit the current hunk
 
 > If two users edited the same line in a file from two different branches and try to merge one branch to the other it will cause a merge conflict.
 
-> To reset the merge :
+> To reset the merge :  `git reset --hard HEAD`
 
-`git reset --hard HEAD`
+> To change the conflict style :  `git config merge.conflictstyle diff3`
 
-> To change the conflict style :
-
-`git config merge.conflictstyle diff3`
 
 > When we rerun the merge `git merge [branchThatHasChanges]` you will see that you have three sections :
 > 1. HEAD : that is the current branch code.
