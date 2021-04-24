@@ -6,7 +6,8 @@
 * [Creating a Remote Repository](#creating-a-remote-repository)
 * [Commiting Changes](#commiting-changes)
 * [Staging Area](#staging-area)
-* [Ignoring Files](#ignoring-files)
+* [Ignoring Files](#ignoring-files)Viewing History
+* [Viewing History](#viewing-history)
 * [Branching](#branching)
 * [Merging](#merging)
 * [Syncing with a Remote](#syncing-with-a-remote)
@@ -174,7 +175,7 @@ e - manually edit the current hunk
 > You can create it, if it does not exist : `git config --global core.excludefile ~/.gitignore_global`
 
 
-### Viewing History
+## Viewing History
 
 > Using the command  `git log` will give you the history of your repository and you can see each commit in more detail like the hash, author, date, and message.
 
