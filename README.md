@@ -472,7 +472,7 @@ e - manually edit the current hunk
 * [Beginning Git](#beginning-git)
 * [Git Info](#git-info)
 * [Merge Conflicts](#merge-conflicts)
-* [a](#a)
+* [Stashes](#stashes)
 * [a](#a)
 * [a](#a)
 * [a](#a)
@@ -491,6 +491,7 @@ e - manually edit the current hunk
 > A commit also has a reference to the parent, then git creates a new simple Commit text file that represents the commit itself and it has a reference to the tree which is a key and a reference to its parent commit and it wraps that up in a file finds a hash and uses that as a key compresses the content as a value and stores it in the Blob Store.
 > So every aspect of the commit (Files, Tree, Commit text files) is stored in the Blob Store, and the hashes you see when you are using git are just the keys used in the Blob Store.
 > That is why braches are very cheap in git because everything is referenced by this key in the Blob Store as a SHA1 hash, so to chose a different point in the git repo you just use a different hash, so the branch is just a file with a reference to that SHA1 hash when you check it out git goes and finds the commit and from there it can find what tree it needs and it recreates that tree in your working directory.
+
 
 ## Merge Conflicts
 
@@ -518,3 +519,33 @@ e - manually edit the current hunk
 > You can run `git mergetool` to invoke the merge tool that we set up in the configuration 'opendiff', on the left-hand side are the local changes made on the branch that you are currently in, and on the right-hand side are the changes that you are trying to merge in from the other branch. 
 > At the bottom right we can choose the Action that we want to perform on the merge conflict.
 > By running the `git status` we will see that doing it in this way will create a file '[fileName].[fileExtension].orig' which is where the merge conflict is stored, so we don't need that and we can remove it using `rm [fileName].[fileExtension].orig` and then we can add and commit the changes and delete the branch that you have merged into your branch by running `git branch -d [branchThatHasChanges]`.
+
+
+## Stashes
+
+> Stashes allow you to record the current state of your working directory and then clean it, after it, you can perform many git operations like `git pull`, `git checkout [branchName]`.
+
+> You can then reapply those changes that you recorded whenever you want to, this can be useful for pulling changes into a directory, it can also be helpful for coping with interruptions in the workflow, or if you have some personal changes that you don't want to commit to the repo so you can stash them and each time you commit they will not be committed and then you can easily reapply them again.
+
+> To stash your changes : `git stash`
+
+> To see a list of all the stashes that you have : `git stash list`
+
+> To reapply the latest stash : `git stash apply`
+
+> Even now that we have reapplied it again if we run the `git stash list` command it will still be in the list.
+
+> To get a more detailed look at our current stash you run : `git stash show -p`
+
+> To look at the second entry in the stash list : `git stash show stash@{1}`
+
+> If you want to reapply the changes and remove the stash from the list : `git stash pop`
+
+> You can provide your own message when you stash a change : `git stash push -m "[yourMessage]"`
+
+> To see a more detailed content of a specific stash : `git stash show -p stash@{[stashNumber]}`
+
+> To remove a specific item in the stash list : `git stash drop stash@{[stashNumber]}`
+
+> You can go to another branch `git checkout [branchName]` and in there you can apply changes of a specific stash `git stash pop stash@{[stashNumber]}` and this will give us a merge conflict, we can then lunch the mergetool using `git mergetool` of Xcode and resolve the merge, that will apply the changes but will leave a file that has the merge conflict and we can remove that using `rm [fileName].[fileExtension].orig` and after that, we can commit the changes. 
+> If we take a look at the stash list using `git stash list` the stash that we applied in the branch is not removed because we had merge conflicts so we can use `git stash drop stash@{[stashNumber]}`.
