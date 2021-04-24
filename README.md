@@ -390,6 +390,7 @@ e - manually edit the current hunk
 > You can create your own aliases for long commands.
 
 > To create your own alias : `git config alias.[yourShortCommand] '[gitOriginalCommand]'`
+
 > Example : `git config alias.st 'stash show -p'`
 
 > To see the aliases that you have created in your local repository :  `cat .git/config`
