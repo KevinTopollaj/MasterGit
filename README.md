@@ -39,59 +39,33 @@
 
 > You can turn any directory on your computer into a Git Repository, and by doing that Git will create a hidden .git directory within that directory. It uses that directory for all of its metadata and its object storage to maintain the history as you move forward.
 
-> 1. Create a directory :
+> 1. Create a directory :  `mkdir myDirectory`
 
-`mkdir myDirectory`
+> 2. Move inside that directory :  `cd myDirectory`
 
-> 2. Move inside that directory :
+> 3. Create a new Git repository :  `git init`
 
-`cd myDirectory`
+> 4. Check the status of your repository :  `git status`
 
-> 3. Create a new Git repository :
+> 5. Start to track a newly added file in the directory and stage this change :  `git add [filename]`
 
-`git init`
+> 6. Commit the changes to the local repository by adding a message :  `git commit -m "[yourMessage]"`
 
-> 4. Check the status of your repository :
+> 7. To see your commit :  `git log`
 
-`git status`
+> 8. Create a repository in GitHub and get the https url to add the local changes to the remote repository :  `git remote add origin [yourHttpsUrl]`
 
-> 5. Start to track a newly added file in the directory and stage this change :
+> 9. Check if the remote repository is created :  `git remote -vv`
 
-`git add [filename]`
-
-> 6. Commit the changes to the local repository by adding a message :
-
-`git commit -m "[yourMessage]"`
-
-> 7. To see your commit :
-
-`git log`
-
-> 8. Create a repository in GitHub and get the https url to add the local changes to the remote repository :
-
-`git remote add origin [yourHttpsUrl]`
-
-> 9. Check if the remote repository is created :
-
-`git remote -vv`
-
-> 10. Move the repository content from your local computer to the remote repository, use ( -u | --set-upstream ) to ensure that the local branch will track the remote master branch  :
-
-`git push -u origin main`
+> 10. Move the repository content from your local computer to the remote repository, use ( -u | --set-upstream ) to ensure that the local branch will track the remote master branch  :  `git push -u origin main`
 
 
-> You can see your local Git configurations using :
+> You can see your local Git configurations using :  `git config --local --list`
 
-`git config --local --list`
+> You can see your global Git configurations using :  `git config --global --list`
 
-> You can see your global Git configurations using :
+> You can change your user name and email used by Git to track commits using :  `git config user.name "[yourNewName]"`  `git config user.email "[yourNewEmail]"`
 
-`git config --global --list`
-
-> You can change your user name and email used by Git to track commits using :
-
-`git config user.name "[yourNewName]"`
-`git config user.email "[yourNewEmail]"`
 
 ## Commiting Changes
 
