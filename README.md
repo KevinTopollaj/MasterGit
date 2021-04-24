@@ -309,7 +309,7 @@ e - manually edit the current hunk
 * [Git Info](#git-info)
 * [Merge Conflicts](#merge-conflicts)
 * [Stashes](#stashes)
-* [a](#a)
+* [Aliases](#aliases)
 * [a](#a)
 * [a](#a)
 * [a](#a)
@@ -382,3 +382,18 @@ e - manually edit the current hunk
 
 > You can go to another branch `git checkout [branchName]` and in there you can apply changes of a specific stash `git stash pop stash@{[stashNumber]}` and this will give us a merge conflict, we can then lunch the mergetool using `git mergetool` of Xcode and resolve the merge, that will apply the changes but will leave a file that has the merge conflict and we can remove that using `rm [fileName].[fileExtension].orig` and after that, we can commit the changes. 
 > If we take a look at the stash list using `git stash list` the stash that we applied in the branch is not removed because we had merge conflicts so we can use `git stash drop stash@{[stashNumber]}`.
+
+
+## Aliases
+
+> It's a way of taking a really long git command and make it shorter by providing your way of writing it.
+> You can create your own aliases for long commands.
+
+> To create your own alias : `git config alias.[yourShortCommand] '[gitOriginalCommand]'`
+> Example : `git config alias.st 'stash show -p'`
+
+> To see the aliases that you have created in your local repository :  `cat .git/config`
+
+> To create a global alias so we can use it with all of our repos : `git config --global alias.gl 'log --oneline --decorate --graph --all'` so now you can run it using `git gl` and it will run all that long command.
+
+> To see your global git configuration : `cat ~/.gitconfig`
