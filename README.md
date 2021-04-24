@@ -73,39 +73,24 @@
 
 > 1. Make a change in a file in your local repository.
 
-> 2. To see the status of your files in your repository :
+> 2. To see the status of your files in your repository : `git status`
 
-`git status`
+> 3. To see the changes that you have made : `git diff`
 
-> 3. To see the changes that you have made :
+> 4. Track all the new added changes : `git add .`
 
-`git diff`
+> 4. Commit the changes in your local repository : `git commit -m "[yourMessage]"`
 
-> 4. Track all the new added changes :
+> 5. To see your commit history and the changes made in that commit : `git log -p`
 
-`git add .`
+> 6. Push your changes to the remote repository : `git push`
 
-> 4. Commit the changes in your local repository :
-
-`git commit -m "[yourMessage]"`
-
-> 5. To see your commit history and the changes made in that commit :
-
-`git log -p`
-
-> 6. Push your changes to the remote repository :
-
-`git push`
 
 > Git tracks only the files not the directories that we may add in our repository so in order to track your directory you have to create it with a hidden file .keep.
 
-> 1. Create the directory :
+> 1. Create the directory : `mkdir myDirectory`
 
-`mkdir myDirectory`
-
-> 2. Add an hidden file inside the directory so you can track it using git :
-
-`touch myDirectory/.keep`
+> 2. Add an hidden file inside the directory so you can track it using git : `touch myDirectory/.keep`
 
 > 3. Now you can add, commit and push the new directory to your remote repository.
 
