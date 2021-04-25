@@ -312,7 +312,7 @@ e - manually edit the current hunk
 * [Aliases](#aliases)
 * [Rebase](#rebase)
 * [Gitignore](#gitignore)
-* [a](#a)
+* [Cherry Picking](#cherry-picking)
 * [a](#a)
 * [a](#a)
 * [a](#a)
@@ -444,4 +444,12 @@ e - manually edit the current hunk
 > If you decide that you want to start tracking it again you write the following command:  `git update-index --no-assume-unchanged [fileName]`
 
 > Another way to stop tracking a file is to mark it as removed but in order to not lose that file we run  `git rm --cached [fileName]` to keep it in the working directory but update the staging area to see it as a deleted file, so if we run `git status` we will see that the [fileName] is marked as deleted then we can commit the changes `git commit -m "[yourMessage]"`then you can move to another branch using `git checkout [branchName]` command and if we see the content of the ignored file using `cat [fileName]` the file content stays the same. 
+
+
+## Cherry Picking
+
+> Allows you to select a commit from anywhere in the repo and add it to your current branch.
+
+> You can run `git gl` to see the logs and locate the hash of the commit that you want to incorporate into your current branch, so to do that you run the `git cherry-pick [hash]` command which will add that commit to your branch.
+
 
