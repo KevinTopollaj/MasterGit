@@ -311,7 +311,7 @@ e - manually edit the current hunk
 * [Stashes](#stashes)
 * [Aliases](#aliases)
 * [Rebase](#rebase)
-* [a](#a)
+* [Gitignore](#gitignore)
 * [a](#a)
 * [a](#a)
 * [a](#a)
@@ -427,4 +427,21 @@ e - manually edit the current hunk
 
 > You go to the branch that has the changes `git checkout [branchName]` than using `git gl` we can see all our commits in a graphical way and there we find the parent commit and take its hash code so we can interactively rebase the commits, to do that we use `git rebase -i [parentBranchHash]` and that will put us into a file which will give us the opportunity to modify our commits in the VIM editor, to cut a line we type `dd`, and to paste it where the cursor is pres `p` after you finish editing the lines you type `:wq` to save and quit.
 
-> To squash multiple commits into one we use the same command `git rebase -i [parentBranchHash]` and then we go to the row that we want to squash type `cw` and in there type `squash` into `pick` and then press the `esc` button and do the same for other rows you want to squash and after you finish editing the lines you type `:wq` to save and quit and that will put you into another editor were you need to create a commit message that will represent all the squashed commits, so we need to delete everything `gD` and then write your message after you finish adding your message you type `:wq` to save and quit, and then the rebase will complete.
+> To squash multiple commits into one we use the same command `git rebase -i [parentBranchHash]` and then we go to the row that we want to squash type `cw` and in there type `squash` into `pick` and then press the `esc` button and do the same for other rows you want to squash and after you finish editing the lines you type `:wq` to save and quit and that will put you into another editor were you need to create a commit message that will represent all the squashed commits, so we need to delete everything `dG` and then write your message after you finish adding your message you type `:wq` to save and quit, and then the rebase will complete.
+
+
+## Gitignore
+
+> There are three ways to ignore files :
+> 1. Tell Git to pretend that there are no more changes to a specific file, and you will be unable to commit it because there will be no changes.
+> 2. Remove the file from the Git index and stop tracking it.
+> 3. Remove all traces of that file from the entire git repository history.
+
+> You can add a file to be ignored by git using `echo "[fileName]*" > .gitignore` and then add it to the staging area `git add .gitignore` and commit the changes `git commit -m "[yourMessage]"` then add some content into that file using `echo "[text]" > [fileName]` and if we run `git status` we will see that git has traced that file so it will notify us that there is a change in that file, so we can tell Git that this file will never change using `git update-index --assume-unchanged [fileName]` command, this will tell Git that whatever happens to this file I want you to assume it did not change.
+
+> To see all the files that Git assumes will never change you can run `git ls-files -v | grep '^[[:lower:]]'`
+
+> If you decide that you want to start tracking it again you write the following command:  `git update-index --no-assume-unchanged [fileName]`
+
+> Another way to stop tracking a file is to mark it as removed but in order to not lose that file we run  `git rm --cached [fileName]` to keep it in the working directory but update the staging area to see it as a deleted file, so if we run `git status` we will see that the [fileName] is marked as deleted then we can commit the changes `git commit -m "[yourMessage]"`then you can move to another branch using `git checkout [branchName]` command and if we see the content of the ignored file using `cat [fileName]` the file content stays the same. 
+
