@@ -415,3 +415,16 @@ e - manually edit the current hunk
 > You can go on the branch that you are working on `git checkout [ABranch]` then we can run `git rebase [BBranch]` so that means we want to add the code from [ABranch] on the end of the branch [BBranch], it can happen that we might get a merge conflict so we can take a look at a file generated to see the differences `cat .git/rebase-apply/patch` after that we can open the mergetool using `git mergetool` to fix the merge conflict, but there is a difference from the normal merge where you go into  [BBranch] and then merge the other [ABranch] into it, however, when you do a rebase these positions are switched where you go to the [ABranch] and put all its changes at the end of the [BBranch].
 
 > After fixing the merge conflict we will apply the changes but that will leave a file that has the merge conflict and we can remove that using `rm [fileName].[fileExtension].orig` and after that, we run `git rebase --continue` but it will not let you because you have no changes you are on [ABranch] that is rebased in [BBranch] so instead we run `git rebase --skip` witch will discard that commit and put you onto the next commit if there are more commits.
+
+
+### Rewriting History :
+
+> Using the interactive rebase you can go to your git repository and reorder, delete, edit commits, or even squash multiple commits into a single commit.
+
+> If you do rebase in a remote repository make sure that everyone is in agreement before so everybody gets the rebased branch, but as a general rule don't rebase something that is shared in a remote repository.
+
+> Example :
+
+> You go to the branch that has the changes `git checkout [branchName]` than using `git gl` we can see all our commits in a graphical way and there we find the parent commit and take its hash code so we can interactively rebase the commits, to do that we use `git rebase -i [parentBranchHash]` and that will put us into a file which will give us the opportunity to modify our commits in the VIM editor, to cut a line we type `dd`, and to paste it where the cursor is pres `p` after you finish editing the lines you type `:wq` to save and quit.
+
+> To squash multiple commits into one we use the same command `git rebase -i [parentBranchHash]` and then we go to the row that we want to squash type `cw` and in there type `squash` into `pick` and then press the `esc` button and do the same for other rows you want to squash and after you finish editing the lines you type `:wq` to save and quit and that will put you into another editor were you need to create a commit message that will represent all the squashed commits, so we need to delete everything `gD` and then write your message after you finish adding your message you type `:wq` to save and quit, and then the rebase will complete.
