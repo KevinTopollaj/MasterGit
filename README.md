@@ -310,7 +310,7 @@ e - manually edit the current hunk
 * [Merge Conflicts](#merge-conflicts)
 * [Stashes](#stashes)
 * [Aliases](#aliases)
-* [a](#a)
+* [Rebase](#rebase)
 * [a](#a)
 * [a](#a)
 * [a](#a)
@@ -398,3 +398,20 @@ e - manually edit the current hunk
 > To create a global alias so we can use it with all of our repos : `git config --global alias.gl 'log --oneline --decorate --graph --all'` so now you can run it using `git gl` and it will run all that long command.
 
 > To see your global git configuration : `cat ~/.gitconfig`
+
+
+## Rebase
+
+### A Merge Alternative :
+
+> Rather than creating a merge commit it moves the feature branch and puts it at the end of the main branch that you wanted to merge the changes.
+
+> If you want to rebase a feature branch on top of the main branch, git will go through each commit since the common ancestor works out the difference and replay it on top of the main branch, so it finds the first diff and replays it on the main branch creating a new commit and continues this way through each commit in your main branch when it is finished with all the commits it moves the HEAD (current location) from the feature branch on the end of the new commits on the main branch that is created.
+
+> All the commits moved from feature branch to the main branch are entirely new commits, because of that fact you are rewriting the history so the feature branch commits no longer exist and they are no longer accessible.
+
+> Example :
+
+> You can go on the branch that you are working on `git checkout [ABranch]` then we can run `git rebase [BBranch]` so that means we want to add the code from [ABranch] on the end of the branch [BBranch], it can happen that we might get a merge conflict so we can take a look at a file generated to see the differences `cat .git/rebase-apply/patch` after that we can open the mergetool using `git mergetool` to fix the merge conflict, but there is a difference from the normal merge where you go into  [BBranch] and then merge the other [ABranch] into it, however, when you do a rebase these positions are switched where you go to the [ABranch] and put all its changes at the end of the [BBranch].
+
+> After fixing the merge conflict we will apply the changes but that will leave a file that has the merge conflict and we can remove that using `rm [fileName].[fileExtension].orig` and after that, we run `git rebase --continue` but it will not let you because you have no changes you are on [ABranch] that is rebased in [BBranch] so instead we run `git rebase --skip` witch will discard that commit and put you onto the next commit if there are more commits.
