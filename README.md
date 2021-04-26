@@ -313,10 +313,12 @@ e - manually edit the current hunk
 * [Rebase](#rebase)
 * [Gitignore](#gitignore)
 * [Cherry Picking](#cherry-picking)
+* [Filter Branch](#filter-branch)
 * [a](#a)
 * [a](#a)
 * [a](#a)
 * [a](#a)
+
 
 ## Git Info
 
@@ -452,4 +454,38 @@ e - manually edit the current hunk
 
 > You can run `git gl` to see the logs and locate the hash of the commit that you want to incorporate into your current branch, so to do that you run the `git cherry-pick [hash]` command which will add that commit to your branch.
 
+
+## Filter Branch
+
+> Allows you to update the repo making it look like any mistakes of the past never even happened.
+
+> WARNING: Using Filter Branch alters the history of the repository, so you can not alter the history of a branch in a repository that has already been shared or at least not without the agreement of all the people that you have shared that branch with.
+
+> You should use Filter Branch for branches that are local to you before you share them with other people.
+
+> If you by mistake committed a secret file you can use Filter Branch to change that.
+
+> Filter Branch allows you to alter the history programmatically, it takes each of the commits in the history and applies a filter to them.
+
+> You can go and see the content of a 'secret file' using `cat [fileName]` and after that, you can see the commits that you have added to that file using `git gl -- [fileName]` command and if you want to see a more detailed content of what each commit consists of you type `git log -p -- [fileName]` command.
+
+> Filters for Filter Branch :
+> 1. Tree filter : this checks out each commit in turn run the script to make the changes that you want to make and rechecks them in. ( It is a slow approach )
+> 2. Index filter : Instead of checking out into the working directory it just set up the staging area, and with that, we can use the cached option to be able to remove a file from an index using this command `git filter-branch --index-filter 'git rm --cached --ignore-unmatch -- [SecretFile]' --prune-empty -f HEAD`, it will go through and changes each of those staging areas and if a commit is empty it will discard it.
+> 3. Environment filter : allows you to specify environment variables, git uses environment variables for all kinds of things including the committer name and email, so you can use this to completely rewrite the committer name for all of the commits.
+
+> To see all the commits that are created by each user in a git remote repository : `git shortlog`
+
+> To change the name of a committer you can type `git filter-branch -f --commit-filter '[bashScript]' HEAD`
+
+```
+if [ "$GIT_AUTHOR_NAME" = "[authorName]" ];
+then 
+ GIT_AUTHOR_NAME = "[newAuthorName]";
+ GIT_AUTHOR_EMAIL = "[newAuthorEmail]";
+ git commit-tree "$@";
+else 
+ git commit-tree "$@";
+fi
+```
 
