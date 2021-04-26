@@ -314,7 +314,7 @@ e - manually edit the current hunk
 * [Gitignore](#gitignore)
 * [Cherry Picking](#cherry-picking)
 * [Filter Branch](#filter-branch)
-* [a](#a)
+* [Undo](#undo)
 * [a](#a)
 * [a](#a)
 * [a](#a)
@@ -488,4 +488,33 @@ else
  git commit-tree "$@";
 fi
 ```
+
+## Undo
+
+> There are a lot of different options of Undo
+
+> The first option is Reset witch is very similar to checkout which when it is used it moves the HEAD on to the branch that we are checking out `git checkout [branchName]` or on a specific commit if we specify its hash by running `git checkout [hash]` command witch will move the HEAD to that commit.
+
+> Reset it moves the HEAD and it also moves the reference that you are currently on and it comes in three ways :
+> 1. Soft : will leave the working directory in the staging area as they were and moves the reference to the specified commit.
+> 2. Mix : leaves the working directory as it is but resets the staging area and the index.
+> 3. Hard : resets both the working directory and the staging area to match exactly the commit that you specified.
+
+> If we add changes into a file and add it to the staging area using `git add [fileName]` we can unstage it using `git reset --mixed HEAD` and that will unstage the changes made in the current branch, but if we instead do `git reset --hard HEAD` that will clear the staging area and the working directory.
+
+> In the previous example, we used HEAD as a reference but it can be anything like a Hash, Branch, Tag name, or you can use relative references like the last commit using `git reset --hard HEAD^` that will reset the HEAD by one commit.
+
+> If you discard a commit that you wanted to keep you can use the 'reflog' which is the git built-in undo stack, it records every operation that mutates the state that you use in your git repo so it allows you to step back through the undo stack.
+
+> We can run `git reflog` and you see the stack of all of the changes that you have been making inside your git repository, so to return the previous commit you can run `git checkout HEAD@{1}` which will put us in a detached head state, where HEAD is on its own away from 'main' and it has no branch referring to it, but we get the commit back, so to keep that commit you need to create a temporary branch `git checkout -b temp` and it will automatically contain the commit that we got back then we can go back to the main branch `git checkout main` and take a look using `git reflog` we will see that those changes will be persisted so if we want to go back before we deleted that commit you can type `git reset --hard HEAD@{[commitNumberBeforeDeletion]}` and then we can delete the temporary branch using `git branch -d temp`.
+
+> You can not change history if you shared it with other people, discarding a commit does that where you discard the commit so you are changing history and you can't do that if you shared that with other people.
+
+> You can use Revert to revert a commit that is shared in a repo so you can run `git revert [commitHash]` which will create a new commit at the end of the branch that is the exact opposite of the previous commit and then you can share that with the world.
+
+> Use `git revert HEAD` to revert the most recent commit, which will generate a commit message for you and revert that commit, if you then want to revert that commit you can run again `git revert HEAD` witch will create a new commit message and revert the last revert.
+
+> EXAMPLE :
+
+> You can create a new branch using `git checkout -b myBranch` and in there create a text file using `touch myFile.txt`, then put that new file into the staging area using `git add myFile.txt` and commit it `git commit -m "[message]"`. Now if we switch back to main using `git checkout main` and delete the newly created branch with its commit using `git branch -D myBranch`, now if we see the reflog using `git reflog` we can se where that file was added so we can then run `git checkout HEAD@{[position]}` which will put us on a detached HEAD but at the point where we checked in that file, so now we need to create a new temporary branch using `git checkout -b temp` and then we can check out the log using `git gl` and we can see that we are back with the branch that we deleted.
 
