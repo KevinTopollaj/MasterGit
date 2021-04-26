@@ -315,7 +315,7 @@ e - manually edit the current hunk
 * [Cherry Picking](#cherry-picking)
 * [Filter Branch](#filter-branch)
 * [Undo](#undo)
-* [a](#a)
+* [GITK](#gitk)
 * [a](#a)
 * [a](#a)
 
@@ -518,3 +518,20 @@ fi
 
 > You can create a new branch using `git checkout -b myBranch` and in there create a text file using `touch myFile.txt`, then put that new file into the staging area using `git add myFile.txt` and commit it `git commit -m "[message]"`. Now if we switch back to main using `git checkout main` and delete the newly created branch with its commit using `git branch -D myBranch`, now if we see the reflog using `git reflog` we can se where that file was added so we can then run `git checkout HEAD@{[position]}` which will put us on a detached HEAD but at the point where we checked in that file, so now we need to create a new temporary branch using `git checkout -b temp` and then we can check out the log using `git gl` and we can see that we are back with the branch that we deleted.
 
+
+## GITK
+
+> It is a cross-platform UI library and you use GITK to visualize the repository and GIT-GUI to prepare your commits.
+
+> They are both installed by default when you install GIT so we have them already, they are cross-platform and are for simple functionality like visualizing your repo and preparing your commits.
+
+> To start GITK you type at the command line `gitk` if you are using macOS and it is not installed you can type `brew install git-gui`.
+
+> You go to the main branch of your repo and you type `gitk` and it will open it.
+
+> At the top left is the tree, then the committer and the commit time for the other two columns at the top.
+> You can select each commit at it will load that commit in the lower window.
+> You can suspend it using the `ctrl+Z` and then put it in the background using `bg`. 
+> Or you can start it in the background directly using `gitk &`.
+
+> To commit the changes that you have made you go to 'File>Start git gui' and this will show you the changes that you have made and will let you create a commit.
