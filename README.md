@@ -316,7 +316,7 @@ e - manually edit the current hunk
 * [Filter Branch](#filter-branch)
 * [Undo](#undo)
 * [GITK](#gitk)
-* [a](#a)
+* [SourceTree](#sourcetree)
 * [a](#a)
 
 
@@ -535,3 +535,13 @@ fi
 > Or you can start it in the background directly using `gitk &`.
 
 > To commit the changes that you have made you go to 'File>Start git gui' and this will show you the changes that you have made and will let you create a commit.
+
+
+## SourceTree
+
+> It is another UI application for using Git.
+
+> To install it visit 'https://sourcetreeapp.com/' and then select the 'Download free' button, once it is downloaded you can unzip it and add it to the applications.
+> When you open the application you will follow the steps to set it up and then clone a repository that you want to use with Source Tree App.
+
+> It will allow you to connect your git account and then clone repositories and create branches, merge, commit, fetch, push, pull.
