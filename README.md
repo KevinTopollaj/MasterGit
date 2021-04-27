@@ -317,7 +317,7 @@ e - manually edit the current hunk
 * [Undo](#undo)
 * [GITK](#gitk)
 * [SourceTree](#sourcetree)
-* [a](#a)
+* [GitUp](#gitup)
 
 
 ## Git Info
@@ -545,3 +545,12 @@ fi
 > When you open the application you will follow the steps to set it up and then clone a repository that you want to use with Source Tree App.
 
 > It will allow you to connect your git account and then clone repositories and create branches, merge, commit, fetch, push, pull.
+
+
+## GitUp
+
+> It builds a semantic layer on top of git you can start a rebase but even if you want to switch two commits around that's a simple operation and it does rebase behind the scene but it allows you to have these high-level semantic operations that are more useful in your day to day workflow.
+
+> You can download it at 'https://gitup.co/' and at the end of the page you can select 'Download Latest Release!' after it is downloaded unzip it and add it to the applications.
+
+> If you go to a commit and press Space bar it will show you the difference than you can press 'cmd+arrow up' do go one commit up or 'cmd+arrow dow' to go one commit down.
